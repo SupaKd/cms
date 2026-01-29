@@ -1,0 +1,121 @@
+/* Header.scss */
+
+.header-cms {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+
+  // Bandeau supérieur (Origine France)
+  .header-top {
+    background-color: #111;
+    color: #ffffff;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    transition: padding 0.3s ease;
+  }
+
+  // Logo
+  .header-logo {
+    img {
+      height: 50px; // Taille par défaut
+      width: auto;
+      transition: height 0.3s ease;
+      border-radius: 1rem;
+    }
+  }
+
+  // Navigation
+  nav {
+    @media screen and (max-width: 768px) {
+      display: none;
+      
+    }
+    ul {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+
+      li {
+        a {
+          font-size: 1.2rem;
+          font-weight: 700;
+          text-decoration: none;
+          color: #fff;
+          position: relative;
+          transition: color 0.3s ease;
+
+          // Petit trait d'accentuation au survol
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #d4af37; // Couleur Or
+            transition: width 0.3s ease;
+          }
+
+          &:hover {
+            color: #d4af37;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // --- État au scroll (is-active) ---
+  &.is-active {
+    background-color: rgba(255, 255, 255, 0.016);
+    backdrop-filter: blur(10px); // Effet de verre dépoli
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    // .header-top est masqué via AnimatePresence dans le JSX
+
+    .container {
+      padding: 10px 5%; // Header plus fin au scroll
+    }
+
+    .header-logo img {
+      height: 35px; // Logo réduit
+      border-radius: 1rem;
+    }
+  }
+}
+
+// Responsive mobile
+@media (max-width: 768px) {
+  .header-cms {
+    .container {
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    nav ul {
+      gap: 20px;
+    }
+  }
+}
