@@ -5,55 +5,21 @@ import CounterAnimations from "../components/CounterAnimations";
 
 const GlassesScene = lazy(() => import("../components/GlassesScene"));
 
-// Animation variants
+// Animations legeres - opacity + translateY uniquement (GPU composited)
 const fadeUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: (delay = 0) => ({
+  hidden: { opacity: 0, y: 30 },
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] },
-  }),
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
 };
 
 const fadeIn = {
   hidden: { opacity: 0 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    transition: { duration: 0.8, delay, ease: "easeOut" },
-  }),
-};
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -80 },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
-};
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 80 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
-};
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
-  },
-};
-
-const staggerContainer = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.15 },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
@@ -69,28 +35,28 @@ const Home = () => {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
         />
         <div className="hero-overlay" />
         <div className="container">
           <motion.div
             className="hero-content"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           >
-            <motion.h1 variants={fadeUp} custom={0.2}>
+            <h1>
               Fabrication de <span>lunettes acétate</span>
-            </motion.h1>
-            <motion.p variants={fadeUp} custom={0.4}>
+            </h1>
+            <p>
               Des lunettes en acétate, conçues avec précision pour allier style,
               confort et durabilité.
-            </motion.p>
-            <motion.div className="hero-btns" variants={fadeUp} custom={0.6}>
+            </p>
+            <div className="hero-btns">
               <a href="#concept" className="btn-secondary">
                 Découvrir le concept
               </a>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -99,10 +65,10 @@ const Home = () => {
       <section className="animation3d">
         <motion.div
           className="animation3d__content"
-          variants={slideInLeft}
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <h2>L'excellence en <span>3D</span></h2>
           <p>
@@ -116,8 +82,7 @@ const Home = () => {
           variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          custom={0.3}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <Suspense
             fallback={
@@ -140,10 +105,10 @@ const Home = () => {
       <section className="acetate-section">
         <motion.div
           className="acetate-section__content"
-          variants={slideInLeft}
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <h2>La passion et les savoirs faire de lunetier</h2>
           <p>
@@ -156,10 +121,10 @@ const Home = () => {
 
         <motion.div
           className="acetate-section__image"
-          variants={scaleIn}
+          variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <img src="/un.webp" alt="Savoir-faire lunetier" loading="lazy" decoding="async" />
         </motion.div>
@@ -169,10 +134,10 @@ const Home = () => {
       <section className="acetate-section-reverse">
         <motion.div
           className="acetate-section-reverse__content"
-          variants={slideInRight}
+          variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <h2>Fabrication française</h2>
           <p>
@@ -185,68 +150,75 @@ const Home = () => {
 
         <motion.div
           className="acetate-section-reverse__image"
-          variants={scaleIn}
+          variants={fadeIn}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
         >
           <img src="/deux.webp" alt="Fabrication lunettes acétate" loading="lazy" decoding="async" />
         </motion.div>
       </section>
 
       {/* SECTION NOTRE HISTOIRE */}
-      <motion.section
-        id="story"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
-        variants={staggerContainer}
-      >
-        <div className="story-header">
-          <motion.div className="story-header__content" variants={slideInLeft}>
+      <section id="story">
+        <motion.div
+          className="story-header"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <div className="story-header__content">
             <h1>CMS Lunettes et Plastiques</h1>
             <h2>Notre Histoire</h2>
-          </motion.div>
-          <motion.div className="story-header__image" variants={scaleIn}>
+          </div>
+          <div className="story-header__image">
             <img src="/trois.webp" alt="Notre histoire" loading="lazy" decoding="async" />
-          </motion.div>
-        </div>
-        <motion.p variants={fadeUp} custom={0}>
-          Une histoire familiale au cœur du savoir-faire lunetier française
-          Implantée dans le bassin oyonnaxien, berceau historique de la
-          plasturgie et de la lunetterie, <span>CMS Lunettes et Plastiques</span> est une
-          entreprise familiale qui s'appuie sur plus de quarante ans de
-          savoir-faire.
-        </motion.p>
-        <motion.p variants={fadeUp} custom={0.1}>
-          L'histoire commence dans les années 1980, lorsque M. Mao se forme au
-          métier de la lunetterie à Oyonnax. Dans les années 1990, avec son
-          épouse, il crée une activité de sous-traitance spécialisée dans
-          plusieurs étapes de fabrication, réalisées majoritairement à la main.
-          Malgré la baisse d'activité liée aux délocalisations au début des
-          années 2000, l'entreprise conserve ses compétences et son ancrage
-          local.
-        </motion.p>
-        <motion.p variants={fadeUp} custom={0.2}>
-          En 2015, le fils reprend l'aventure familiale et apporte une nouvelle
-          dynamique grâce à ses compétences en management et à une vision
-          tournée vers l'avenir. L'entreprise se modernise progressivement, tout
-          en préservant l'importance du geste artisanal, soutenu par des
-          équipements semi-industriels.
-        </motion.p>
-        <motion.p variants={fadeUp} custom={0.3}>
-          En plus de son activité historique de sous-traitance, <span>CMS Lunettes et
-          Plastiques</span> devient en 2024 fabricant de lunettes en acétate, capable
-          de produire des montures de A à Z. Le rachat de la société Eyebrowear
-          à Oyonnax en 2024 permet d'enrichir les compétences et d'accompagner
-          le développement de l'entreprise.
-        </motion.p>
-        <motion.p variants={fadeUp} custom={0.4}>
-          Aujourd'hui, CMS Lunettes et Plastique revendique la production
-          <span> française</span>, alliant savoir-faire artisanal, maîtrise technique et
-          exigence de qualité, au service de marques et de créateurs.
-        </motion.p>
-      </motion.section>
+          </div>
+        </motion.div>
+        <motion.div
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          <p>
+            Une histoire familiale au cœur du savoir-faire lunetier française
+            Implantée dans le bassin oyonnaxien, berceau historique de la
+            plasturgie et de la lunetterie, <span>CMS Lunettes et Plastiques</span> est une
+            entreprise familiale qui s'appuie sur plus de quarante ans de
+            savoir-faire.
+          </p>
+          <p>
+            L'histoire commence dans les années 1980, lorsque M. Mao se forme au
+            métier de la lunetterie à Oyonnax. Dans les années 1990, avec son
+            épouse, il crée une activité de sous-traitance spécialisée dans
+            plusieurs étapes de fabrication, réalisées majoritairement à la main.
+            Malgré la baisse d'activité liée aux délocalisations au début des
+            années 2000, l'entreprise conserve ses compétences et son ancrage
+            local.
+          </p>
+          <p>
+            En 2015, le fils reprend l'aventure familiale et apporte une nouvelle
+            dynamique grâce à ses compétences en management et à une vision
+            tournée vers l'avenir. L'entreprise se modernise progressivement, tout
+            en préservant l'importance du geste artisanal, soutenu par des
+            équipements semi-industriels.
+          </p>
+          <p>
+            En plus de son activité historique de sous-traitance, <span>CMS Lunettes et
+            Plastiques</span> devient en 2024 fabricant de lunettes en acétate, capable
+            de produire des montures de A à Z. Le rachat de la société Eyebrowear
+            à Oyonnax en 2024 permet d'enrichir les compétences et d'accompagner
+            le développement de l'entreprise.
+          </p>
+          <p>
+            Aujourd'hui, CMS Lunettes et Plastique revendique la production
+            <span> française</span>, alliant savoir-faire artisanal, maîtrise technique et
+            exigence de qualité, au service de marques et de créateurs.
+          </p>
+        </motion.div>
+      </section>
     </main>
   );
 };

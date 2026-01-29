@@ -10,7 +10,7 @@
   background-color: transparent;
   font-family: "Inter", sans-serif;
 
-  // Bandeau supérieur (Origine France)
+  // Bandeau supérieur (Origine France) - transition CSS pure (performant)
   .header-top {
     background-color: #111;
     color: #ffffff;
@@ -21,6 +21,9 @@
     text-transform: uppercase;
     font-weight: 500;
     overflow: hidden;
+    max-height: 40px;
+    opacity: 1;
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
   }
 
   .container {
@@ -92,7 +95,11 @@
     backdrop-filter: blur(10px); // Effet de verre dépoli
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
-    // .header-top est masqué via AnimatePresence dans le JSX
+    .header-top {
+      max-height: 0;
+      opacity: 0;
+      padding: 0;
+    }
 
     .container {
       padding: 10px 5%; // Header plus fin au scroll
