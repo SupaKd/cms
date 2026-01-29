@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Home.scss";
 import CounterAnimations from "../components/CounterAnimations";
@@ -24,11 +24,37 @@ const fadeIn = {
 };
 
 const Home = () => {
+  const videoRef = useRef(null);
+
+  // Force le play sur mobile (Safari iOS bloque parfois l'autoplay au mount)
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const tryPlay = () => {
+      video.play().catch(() => {
+        // Si le navigateur bloque quand meme, on retente au premier touch
+        const onTouch = () => {
+          video.play();
+          document.removeEventListener("touchstart", onTouch);
+        };
+        document.addEventListener("touchstart", onTouch, { once: true });
+      });
+    };
+
+    if (video.readyState >= 3) {
+      tryPlay();
+    } else {
+      video.addEventListener("canplay", tryPlay, { once: true });
+    }
+  }, []);
+
   return (
     <main className="home-page">
       {/* SECTION HERO */}
       <section className="hero-section">
         <video
+          ref={videoRef}
           className="hero-video"
           src="/video1.mp4"
           autoPlay
