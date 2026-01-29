@@ -79,7 +79,7 @@ const Home = () => {
               confort et durabilité.
             </p>
             <div className="hero-btns">
-              <a href="#concept" className="btn-secondary">
+              <a href="#animation3d" className="btn-secondary">
                 Découvrir le concept
               </a>
             </div>
@@ -88,7 +88,7 @@ const Home = () => {
       </section>
 
       {/* SECTION 3D */}
-      <section className="animation3d">
+      <section id="animation3d" className="animation3d">
         <motion.div
           className="animation3d__content"
           variants={fadeUp}
