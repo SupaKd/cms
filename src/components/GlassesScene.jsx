@@ -26,7 +26,7 @@ const GlassesScene = () => {
   return (
     <Canvas
       camera={{
-        position: [0, 0, 4],
+        position: [0, 0, 6],
         fov: 35,
         near: 0.1,
         far: 100,
