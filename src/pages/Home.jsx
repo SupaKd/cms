@@ -89,19 +89,15 @@ const Home = () => {
 
       {/* SECTION 3D */}
       <section id="animation3d" className="animation3d">
-        <motion.div
-          className="animation3d__content"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          <h2>L'excellence en <span>3D</span></h2>
+        <div className="animation3d__content">
+          <h2>
+            L'excellence en <span>3D</span>
+          </h2>
           <p>
             Interagissez avec notre monture — faites glisser pour explorer
             chaque détail.
           </p>
-        </motion.div>
+        </div>
         <motion.div
           className="animation3d__canvas"
           data-lenis-prevent
@@ -152,7 +148,12 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          <img src="/un.webp" alt="Savoir-faire lunetier" loading="lazy" decoding="async" />
+          <img
+            src="/un.webp"
+            alt="Savoir-faire lunetier"
+            loading="lazy"
+            decoding="async"
+          />
         </motion.div>
       </section>
 
@@ -181,7 +182,12 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          <img src="/deux.webp" alt="Fabrication lunettes acétate" loading="lazy" decoding="async" />
+          <img
+            src="/deux.webp"
+            alt="Fabrication lunettes acétate"
+            loading="lazy"
+            decoding="async"
+          />
         </motion.div>
       </section>
 
@@ -199,7 +205,12 @@ const Home = () => {
             <h2>Notre Histoire</h2>
           </div>
           <div className="story-header__image">
-            <img src="/trois.webp" alt="Notre histoire" loading="lazy" decoding="async" />
+            <img
+              src="/trois.webp"
+              alt="Notre histoire"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </motion.div>
         <motion.div
@@ -211,37 +222,38 @@ const Home = () => {
           <p>
             Une histoire familiale au cœur du savoir-faire lunetier française
             Implantée dans le bassin oyonnaxien, berceau historique de la
-            plasturgie et de la lunetterie, <span>CMS Lunettes et Plastiques</span> est une
-            entreprise familiale qui s'appuie sur plus de quarante ans de
-            savoir-faire.
+            plasturgie et de la lunetterie,{" "}
+            <span>CMS Lunettes et Plastiques</span> est une entreprise familiale
+            qui s'appuie sur plus de quarante ans de savoir-faire.
           </p>
           <p>
             L'histoire commence dans les années 1980, lorsque M. Mao se forme au
             métier de la lunetterie à Oyonnax. Dans les années 1990, avec son
             épouse, il crée une activité de sous-traitance spécialisée dans
-            plusieurs étapes de fabrication, réalisées majoritairement à la main.
-            Malgré la baisse d'activité liée aux délocalisations au début des
-            années 2000, l'entreprise conserve ses compétences et son ancrage
-            local.
+            plusieurs étapes de fabrication, réalisées majoritairement à la
+            main. Malgré la baisse d'activité liée aux délocalisations au début
+            des années 2000, l'entreprise conserve ses compétences et son
+            ancrage local.
           </p>
           <p>
-            En 2015, le fils reprend l'aventure familiale et apporte une nouvelle
-            dynamique grâce à ses compétences en management et à une vision
-            tournée vers l'avenir. L'entreprise se modernise progressivement, tout
-            en préservant l'importance du geste artisanal, soutenu par des
-            équipements semi-industriels.
+            En 2015, le fils reprend l'aventure familiale et apporte une
+            nouvelle dynamique grâce à ses compétences en management et à une
+            vision tournée vers l'avenir. L'entreprise se modernise
+            progressivement, tout en préservant l'importance du geste artisanal,
+            soutenu par des équipements semi-industriels.
           </p>
           <p>
-            En plus de son activité historique de sous-traitance, <span>CMS Lunettes et
-            Plastiques</span> devient en 2024 fabricant de lunettes en acétate, capable
-            de produire des montures de A à Z. Le rachat de la société Eyebrowear
-            à Oyonnax en 2024 permet d'enrichir les compétences et d'accompagner
-            le développement de l'entreprise.
+            En plus de son activité historique de sous-traitance,{" "}
+            <span>CMS Lunettes et Plastiques</span> devient en 2024 fabricant de
+            lunettes en acétate, capable de produire des montures de A à Z. Le
+            rachat de la société Eyebrowear à Oyonnax en 2024 permet d'enrichir
+            les compétences et d'accompagner le développement de l'entreprise.
           </p>
           <p>
             Aujourd'hui, CMS Lunettes et Plastique revendique la production
-            <span> française</span>, alliant savoir-faire artisanal, maîtrise technique et
-            exigence de qualité, au service de marques et de créateurs.
+            <span> française</span>, alliant savoir-faire artisanal, maîtrise
+            technique et exigence de qualité, au service de marques et de
+            créateurs.
           </p>
         </motion.div>
       </section>
