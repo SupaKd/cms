@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header className={`header-cms ${isScrolled ? "is-active" : ""}`}>
       <div className="header-top">
-        <p>Implantée à Oyonnax</p>
+        <p>Implantée à Lyon 🔥</p>
       </div>
       <div className="container">
         <div className="header-logo">

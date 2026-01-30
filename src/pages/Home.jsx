@@ -53,16 +53,7 @@ const Home = () => {
     <main className="home-page">
       {/* SECTION HERO */}
       <section className="hero-section">
-        <video
-          ref={videoRef}
-          className="hero-video"
-          src="/video1.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-        />
+        
         <div className="hero-overlay" />
         <div className="container">
           <motion.div
@@ -132,12 +123,13 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          <h2>La passion et les savoirs faire de lunetier</h2>
+          <h2>La passion et le savoir-faire de lunetier</h2>
           <p>
-            À partir de 2017, CMS Lunettes et Plastiques entre dans une phase de
-            développement significative, marquée par l'acquisition de machines
-            modernes, puis, entre 2021, par l'intégration d'équipements
-            automatisés et performants avec un personnel passionné et qualifié
+            À partir de 2017, Optical Store entre dans une phase de
+            développement significative, marquée par l’acquisition de machines
+            modernes. Cette évolution se poursuit dès 2021 avec l’intégration
+            d’équipements automatisés et performants, portée par une équipe de
+            professionnels passionnés et hautement qualifiés.
           </p>
         </motion.div>
 
@@ -166,12 +158,15 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          <h2>Fabrication française</h2>
+          <h2>Fabrication française d’exception</h2>
           <p>
-            En 2024, la société franchit une étape déterminante en devenant
-            fabricant de lunettes à part entière, capable de produire des
-            montures en acétate de A à Z, tout en conservant son activité
-            historique de sous-traitance pour des partenaires français
+            En 2024, Optical Store franchit une étape majeure de son
+            développement en devenant fabricant de lunettes à part entière.
+            Forte d’un savoir-faire maîtrisé et d’exigences élevées, la maison
+            conçoit et fabrique des montures en acétate de A à Z, au cœur de ses
+            ateliers français. Cette évolution s’inscrit dans la continuité de
+            son activité historique de sous-traitance, menée avec le même niveau
+            d’excellence auprès de partenaires français de renom.
           </p>
         </motion.div>
 
@@ -201,8 +196,10 @@ const Home = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           <div className="story-header__content">
-            <h1>CMS Lunettes et Plastiques</h1>
-            <h2>Notre Histoire</h2>
+            <h1>Optical Store</h1>
+            <h2>
+              Une histoire familiale au cœur du savoir-faire lunetier français
+            </h2>
           </div>
           <div className="story-header__image">
             <img
@@ -220,40 +217,41 @@ const Home = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           <p>
-            Une histoire familiale au cœur du savoir-faire lunetier française
             Implantée dans le bassin oyonnaxien, berceau historique de la
-            plasturgie et de la lunetterie,{" "}
-            <span>CMS Lunettes et Plastiques</span> est une entreprise familiale
-            qui s'appuie sur plus de quarante ans de savoir-faire.
+            plasturgie et de la lunetterie française, Optical Store s’inscrit
+            dans une tradition familiale portée par plus de quarante années de
+            savoir-faire et de passion pour le métier de lunetier.
           </p>
           <p>
-            L'histoire commence dans les années 1980, lorsque M. Mao se forme au
-            métier de la lunetterie à Oyonnax. Dans les années 1990, avec son
-            épouse, il crée une activité de sous-traitance spécialisée dans
-            plusieurs étapes de fabrication, réalisées majoritairement à la
-            main. Malgré la baisse d'activité liée aux délocalisations au début
-            des années 2000, l'entreprise conserve ses compétences et son
-            ancrage local.
+            L’histoire débute dans les années 1980, lorsque M. Mao se forme aux
+            métiers de la lunetterie à Oyonnax. Dans les années 1990, il fonde
+            avec son épouse une activité de sous-traitance spécialisée dans
+            plusieurs étapes clés de la fabrication de montures, réalisées
+            majoritairement à la main. Malgré les mutations du secteur et les
+            délocalisations du début des années 2000, l’entreprise préserve ses
+            compétences, son exigence de qualité et son ancrage local.
           </p>
           <p>
-            En 2015, le fils reprend l'aventure familiale et apporte une
-            nouvelle dynamique grâce à ses compétences en management et à une
-            vision tournée vers l'avenir. L'entreprise se modernise
-            progressivement, tout en préservant l'importance du geste artisanal,
-            soutenu par des équipements semi-industriels.
+            En 2015, la nouvelle génération reprend le flambeau et insuffle une
+            dynamique nouvelle, portée par une vision stratégique et des
+            compétences en management. Optical Store engage alors une
+            modernisation progressive de ses outils de production, tout en
+            conservant l’importance du geste artisanal, soutenu par des
+            équipements semi-industriels performants.
           </p>
           <p>
-            En plus de son activité historique de sous-traitance,{" "}
-            <span>CMS Lunettes et Plastiques</span> devient en 2024 fabricant de
-            lunettes en acétate, capable de produire des montures de A à Z. Le
-            rachat de la société Eyebrowear à Oyonnax en 2024 permet d'enrichir
-            les compétences et d'accompagner le développement de l'entreprise.
+            En 2024, Optical Store franchit une étape majeure de son
+            développement en devenant fabricant de lunettes en acétate à part
+            entière, capable de produire des montures de A à Z. Le rachat de la
+            société Eyebrowear, également implantée à Oyonnax, vient renforcer
+            les expertises internes et accompagner la montée en puissance de
+            l’entreprise.
           </p>
           <p>
-            Aujourd'hui, CMS Lunettes et Plastique revendique la production
-            <span> française</span>, alliant savoir-faire artisanal, maîtrise
+            Aujourd’hui, Optical Store revendique avec fierté une fabrication
+            française d’excellence, alliant savoir-faire artisanal, maîtrise
             technique et exigence de qualité, au service de marques et de
-            créateurs.
+            créateurs en quête d’authenticité et de précision.
           </p>
         </motion.div>
       </section>

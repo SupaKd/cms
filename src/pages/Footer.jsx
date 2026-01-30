@@ -19,7 +19,7 @@ const Footer = () => {
       </div>
 
       <p className="simple-footer__copyright">
-        &copy; {currentYear} CMS Lunettes et Plastiques - Fabriquant de lunettes français
+        &copy; {currentYear} Optical store - Fabriquant de lunettes français
       </p>
     </footer>
   );

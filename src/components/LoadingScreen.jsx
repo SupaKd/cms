@@ -64,7 +64,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           height={80}
         />
         <div className="loading-text">
-          <h2>CMS Lunettes et Plastiques</h2>
+          <h2>Optical Store | Fabricant Français.</h2>
           <div className="loading-bar-track">
             <motion.div
               className="loading-bar"

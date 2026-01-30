@@ -12,14 +12,14 @@
 
   // Bandeau supérieur (Origine France) - transition CSS pure (performant)
   .header-top {
-    background-color: #1a1a1a;
-    color: #ffffff;
+    background-color: #D4AF37;
+    color: #111;
     text-align: center;
     padding: 2px 0;
     font-size: 0.8rem;
     letter-spacing: 0.5px;
     text-transform:capitalized;
-    font-weight: 500;
+    font-weight: 700;
     overflow: hidden;
     max-height: 40px;
     opacity: 1;
@@ -39,7 +39,7 @@
   // Logo
   .header-logo {
     img {
-      height: 50px; // Taille par défaut
+      height: 75px; // Taille par défaut
       width: auto;
       transition: height 0.3s ease;
       border-radius: 1rem;
@@ -67,23 +67,17 @@
       // Évite d'imbriquer trop profondément si ce n'est pas nécessaire
       a {
         position: relative;
-        display: inline-block; // Permet une meilleure gestion des transitions
-        font-size: 1.2rem;
+        display: inline-block; 
+        font-size: 1rem;
+        border: 1px solid #fff; 
+        padding: 1rem 1.5rem;
+        border-radius: 99px;
         font-weight: 700;
         color: #fff;
         text-decoration: none;
         transition: color 0.3s ease-in-out;
   
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -5px;
-          left: 0;
-          width: 0;
-          height: 1px;
-          background-color: #d4af37;
-          transition: width 0.3s ease-in-out;
-        }
+       
   
         // Groupement des états interactifs
         &:hover,
