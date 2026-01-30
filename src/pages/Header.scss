@@ -12,13 +12,13 @@
 
   // Bandeau supérieur (Origine France) - transition CSS pure (performant)
   .header-top {
-    background-color: #111;
+    background-color: #1a1a1a;
     color: #ffffff;
     text-align: center;
-    padding: 8px 0;
+    padding: 2px 0;
     font-size: 0.8rem;
     letter-spacing: 0.5px;
-    text-transform: uppercase;
+    text-transform:capitalized;
     font-weight: 500;
     overflow: hidden;
     max-height: 40px;
@@ -48,41 +48,51 @@
 
   // Navigation
   nav {
-    @media screen and (max-width: 768px) {
-      display: none;
-      
+    // 1. Mobile-first : On cache par défaut et on affiche via media query (plus robuste)
+    display: none;
+  
+    @media screen and (min-width: 769px) {
+      display: block;
     }
+  
     ul {
       display: flex;
-      gap: 40px;
+      gap: 2.5rem; // Utilisation de rem pour la cohérence de l'espacement
       list-style: none;
-
-      li {
-        a {
-          font-size: 1.2rem;
-          font-weight: 700;
-          text-decoration: none;
-          color: #fff;
-          position: relative;
-          transition: color 0.3s ease;
-
-          // Petit trait d'accentuation au survol
+      padding: 0; // Reset par précaution
+      margin: 0;
+    }
+  
+    li {
+      // Évite d'imbriquer trop profondément si ce n'est pas nécessaire
+      a {
+        position: relative;
+        display: inline-block; // Permet une meilleure gestion des transitions
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+  
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: #d4af37;
+          transition: width 0.3s ease-in-out;
+        }
+  
+        // Groupement des états interactifs
+        &:hover,
+        &:focus-visible {
+          color: #d4af37;
+          outline: none;
+  
           &::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: #d4af37; // Couleur Or
-            transition: width 0.3s ease;
-          }
-
-          &:hover {
-            color: #d4af37;
-            &::after {
-              width: 100%;
-            }
+            width: 100%;
           }
         }
       }
