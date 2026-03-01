@@ -1,0 +1,131 @@
+/* Header.scss */
+
+.header-cms {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: transparent;
+  font-family: "Inter", sans-serif;
+
+  // Bandeau supérieur (Origine France) - transition CSS pure (performant)
+  .header-top {
+    background-color: #d4af37;
+    color: #111;
+    text-align: center;
+    padding: 2px 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: capitalized;
+    font-weight: 700;
+    overflow: hidden;
+    max-height: 40px;
+    opacity: 1;
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    transition: padding 0.3s ease;
+  }
+
+  // Logo
+  .header-logo {
+    img {
+      height: 75px; // Taille par défaut
+      width: auto;
+      transition: height 0.3s ease;
+      border-radius: 1rem;
+    }
+  }
+
+  // Navigation
+  nav {
+    // 1. Mobile-first : On cache par défaut et on affiche via media query (plus robuste)
+    display: none;
+
+    @media screen and (min-width: 769px) {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      gap: 2.5rem; // Utilisation de rem pour la cohérence de l'espacement
+      list-style: none;
+      padding: 0; // Reset par précaution
+      margin: 0;
+    }
+
+    li {
+      // Évite d'imbriquer trop profondément si ce n'est pas nécessaire
+      a {
+        position: relative;
+        display: inline-block;
+        font-size: 1rem;
+        border: 1px solid #fff;
+        padding: 1rem 1.5rem;
+        border-radius: 99px;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+
+        // Groupement des états interactifs
+        &:hover,
+        &:focus-visible {
+          color: #d4af37;
+          outline: none;
+
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // --- État au scroll (is-active) ---
+  &.is-active {
+    background-color: rgba(255, 255, 255, 0.016);
+    backdrop-filter: blur(10px); // Effet de verre dépoli
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    .header-top {
+      max-height: 0;
+      opacity: 0;
+      padding: 0;
+    }
+
+    .container {
+      padding: 10px 5%; // Header plus fin au scroll
+    }
+
+    .header-logo img {
+      height: 35px; // Logo réduit
+      border-radius: 1rem;
+    }
+  }
+}
+
+// Responsive mobile
+@media (max-width: 768px) {
+  .header-cms {
+    .container {
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    nav ul {
+      gap: 20px;
+    }
+  }
+}

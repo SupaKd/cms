@@ -1,0 +1,101 @@
+/* --- MODERN RESET --- */
+
+// 1. Box sizing rules & smooth scrolling
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  // Défilement fluide pour les ancres (#rdv, #concept)
+  scroll-behavior: smooth;
+  // Empêche le changement de taille de police sur mobile après rotation
+  -webkit-text-size-adjust: 100%;
+}
+
+// 2. Remove default margins and padding
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+// 3. Set core body defaults
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+// 4. Elements that don't inherit font-family
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// 5. Remove list styles (on specific classes if preferred, or globally)
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// 6. Make images and media easier to work with
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// 7. Remove text decoration for links
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+// 8. Improve accessibility: focus states
+:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 4px;
+}
+
+// 9. Remove animations for people who prefer reduced motion
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
